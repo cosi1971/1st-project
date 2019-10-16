@@ -24,5 +24,7 @@ steps:
 - script: conda create --yes --quiet --name myEnvironment
   displayName: Create Anaconda environment
 
-- script: conda env create --quiet --file environment.yml
-  displayName: Create Anaconda environment
+- script: |
+    call activate myEnvironment
+    conda install --yes --quiet --name myEnvironment scipy
+  displayName: Install Anaconda packages
